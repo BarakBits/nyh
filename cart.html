@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attire Home</title>
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap css -->
+    <link rel = "stylesheet" href = "bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <!-- custom css -->
+    <link rel = "stylesheet" href = "css/main.css">
+</head>
+<body>
+    
+    <!-- navbar -->
+    <nav class = "navbar navbar-expand-lg navbar-light bg-white py-2 fixed-top" >
+        <div class = "container" >
+            <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "index.html">
+                <img src = "images/logo.png" alt = "site icon" >
+                
+            </a>
+
+            <div class = "order-lg-2 nav-btns">
+                <button type = "button" class = "btn position-relative" onclick="window.location.href = 'cart.html'">
+                    <i class = "fa fa-shopping-cart"></i>
+                    <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary" id="cart-count"></span>
+                </button>
+            </div>
+
+            <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
+                <span class = "navbar-toggler-icon"></span>
+            </button>
+
+            <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
+                <ul class = "navbar-nav mx-auto text-center">
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "/#header">home</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "/#collection">collection</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "/#special">specials</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "/#blogs">blogs</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "/#about">about us</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2 border-0">
+                        <a class = "nav-link text-uppercase text-dark" href = "/#popular">popular</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end of navbar -->
+
+    <section class="my-5">
+        <div class="container pt-5 mb-3">
+            <div class = "title text-center">
+                <h2 class = "position-relative d-inline-block">Cart</h2>
+            </div>
+
+            <div class="row g-0" id="cart-items">
+                <div class = "mt-4 row gx-0 gy-3 d-flex align-items-stretch"></div>
+            </div>
+
+            <h4 class="mt-4">Total: $<span id="cart-total">0.00</span></h4>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal">Place Order</button>
+        </div>
+    </section>
+
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Place Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="order-form">
+                        <div class="mb-3"><label class="form-label">Amount</label><input type="text" class="form-control" id="amount" readonly></div>
+                        <div class="d-flex flex-md-row flex-column gap-2 mb-2">
+                            <div><label class="form-label">First Name</label><input type="text" class="form-control" name="firstname" required></div>
+                            <div><label class="form-label">Last Name</label><input type="text" class="form-control" name="lastname" required></div>
+                        </div>
+                        <div class="d-flex flex-md-row flex-column gap-2 mb-2">
+                            <div><label class="form-label">Email</label><input type="email" class="form-control" name="email" required></div>
+                            <div><label class="form-label">Phone</label><input type="tel" class="form-control" name="phone" required></div>
+                        </div>
+                        <div class="d-flex flex-md-row flex-column gap-2 mb-2">
+                            <div><label class="form-label">Apartment</label><input type="text" class="form-control" name="apartment"></div>
+                            <div><label class="form-label">Street</label><input type="text" class="form-control" name="street" required></div>
+                        </div>
+                        <div class="d-flex flex-md-row flex-column gap-2 mb-2">
+                            <div><label class="form-label">Locality</label><input type="text" class="form-control" name="locality"></div>
+                            <div><label class="form-label">City</label><input type="text" class="form-control" name="city" required></div>
+                        </div>
+                        <div class="d-flex flex-md-row flex-column gap-2 mb-2">
+                            <div><label class="form-label">ZIP</label><input type="text" class="form-control" name="zip" required></div>
+                            <div><label class="form-label">State</label><input type="text" class="form-control" name="state" required></div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 mt-2">Submit Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function getCart() {
+        return JSON.parse(localStorage.getItem("cart")) || [];
+    }
+
+    function saveCart(cart) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function updateCart() {
+        const cart = getCart();
+        const cartItems = document.getElementById("cart-items");
+        const cartTotal = document.getElementById("cart-total");
+        const amountInput = document.getElementById("amount");
+        cartItems.innerHTML = "";
+        let total = 0;
+
+        cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.className = "list-group-item d-flex flex-column flex-md-row align-items-center p-2";
+
+        li.innerHTML = `
+            <img src="${item.image}" height="400px" width="320px" style="object-fit: cover" alt="${item.name}" />
+            <div class="ms-3 d-flex flex-column align-items-center align-items-md-start mt-2 mt-md-0 h-100">
+                <h4 class="mb-auto text-center text-md-start">${item.name}</h4>
+                <p class="text-center text-md-start">$${item.price.toFixed(2)}</p>
+                <p class="text-center text-md-start">Subtotal: $${item.price * item.quantity}</p>
+                <input type="number" class="form-control me-2 mb-2" min="1" value="${item.quantity}" onchange="changeQuantity(${index}, this.value)">
+                <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">
+                    Remove
+                </button>
+            </div>
+        `;
+
+        cartItems.appendChild(li);
+        total += item.price * item.quantity;
+        });
+
+        cartTotal.textContent = total.toFixed(2);
+        amountInput.value = total.toFixed(2);
+    }
+
+    function changeQuantity(index, quantity) {
+        let cart = getCart();
+        quantity = parseInt(quantity, 10);
+        if (quantity > 0) {
+        cart[index].quantity = quantity;
+        } else {
+        cart.splice(index, 1);
+        }
+        saveCart(cart);
+        updateCart();
+    }
+
+    function removeFromCart(index) {
+        let cart = getCart();
+        cart.splice(index, 1);
+        saveCart(cart);
+        updateCart();
+    }
+
+    document.getElementById("order-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const cart = getCart();
+        const items = cart.map(item => `${item.id},${item.name},${item.quantity}`).join("; ");
+        formData.append("items", items);
+        formData.append("amount", document.getElementById("amount").value);
+
+        fetch("https://script.google.com/macros/s/AKfycbwsnqkxpZEYTMV6PWfJCK-2Y2E0iS2gCDm2o8YUnuIXaFVDeGwU5s30li6tThGj4wOS/exec", {
+        method: "POST",
+        body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+        alert("We have saved your order! We will contact you soon.");
+        })
+        .catch(error => alert("Failed to place order! Try Later"));
+    });
+
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            document.getElementById("cart-count").innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateCart();
+            updateCartCount();
+        });
+    </script>
+
+    <div class="fixed-bottom d-flex justify-content-end me-3 mb-3">
+        <button class="btn btn-primary rounded-circle p-3" data-bs-toggle="modal" data-bs-target="#contactModal">
+            <div style="width: 40px; height: 40px" class="d-flex justify-content-center align-items-center">
+                <i class="fa fa-comment lh-1 fs-4"></i>
+            </div>
+        </button>
+    </div>
+
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-map-marked-alt me-4"></i>
+                            <div>
+                                <p class="mb-0">House no 517, Crystal Ideal City, Awadhpuri</p>
+                                <small>Address</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-envelope me-4"></i>
+                            <div>
+                                <p class="mb-0">jibiteshbora@gmail.com</p>
+                                <small>Email</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-phone-alt me-4"></i>
+                            <div>
+                                <p class="mb-0">8638280029</p>
+                                <small>Phone</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fab fa-whatsapp me-4"></i>
+                            <div>
+                                <p class="mb-0">9387616759</p>
+                                <small>WhatsApp</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class = "py-5 position-relative overflow-hidden" style="background: linear-gradient(0deg, #012754 0%, #024567 40%, #038691 100%);">
+        <div class="w-100 position-absolute top-0 z-n1">
+            <div class="d-flex justify-content-between align-items-center">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: 10px; width: 200px; opacity: 0.6">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: -20px; width: 60px; opacity: 0.6; transform: scaleX(-1)">
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: -40px; width: 80px; opacity: 0.6">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: -40px; width: 260px; opacity: 0.6; transform: scaleX(-1)">
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: -80px; width: 210px; opacity: 0.6">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: -20px; width: 100px; opacity: 0.6; transform: scaleX(-1)">
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: -60px; width: 60px; opacity: 0.6">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: -40px; width: 230px; opacity: 0.6; transform: scaleX(-1)">
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: -80px; width: 210px; opacity: 0.6">
+                <img src="images/feather.png" alt="" class="img-fluid position-relative" style="top: -20px; width: 120px; opacity: 0.6; transform: scaleX(-1)">
+            </div>
+        </div>
+        <div class = "container position-relative" style="z-index: 1;">
+            <div class = "row text-white g-4">
+                <div class = "col-md-6 col-lg-3">
+                    <a class = "text-uppercase text-decoration-none brand text-white" href = "index.html">Attire</a>
+                    <p class = "text-white mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum mollitia quisquam veniam odit cupiditate, ullam aut voluptas velit dolor ipsam?</p>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light">Links</h5>
+                    <ul class = "list-unstyled">
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none">
+                                <i class = "fas fa-chevron-right me-1"></i> Home
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none">
+                                <i class = "fas fa-chevron-right me-1"></i> Collection
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none">
+                                <i class = "fas fa-chevron-right me-1"></i> Blogs
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none">
+                                <i class = "fas fa-chevron-right me-1"></i> About Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light mb-3">Contact Us</h5>
+                    <div class = "d-flex justify-content-start align-items-start my-2">
+                        <span class = "me-3">
+                            <i class = "fas fa-map-marked-alt"></i>
+                        </span>
+                        <span class = "fw-light">
+                            House no 517, Crystal Ideal City, Awadhpuri
+                        </span>
+                    </div>
+                    <div class = "d-flex justify-content-start align-items-start my-2">
+                        <span class = "me-3">
+                            <i class = "fas fa-envelope"></i>
+                        </span>
+                        <span class = "fw-light">
+                            jibiteshbora@gmail.com
+                        </span>
+                    </div>
+                    <div class = "d-flex justify-content-start align-items-start my-2">
+                        <span class = "me-3">
+                            <i class = "fas fa-phone-alt"></i>
+                        </span>
+                        <span class = "fw-light">
+                            8638280029
+                        </span>
+                    </div>
+
+                    <div class = "d-flex justify-content-start align-items-start my-2">
+                        <span class = "me-3">
+                            <i class="fab fa-whatsapp"></i>
+                        </span>
+                        <span class = "fw-light">
+                            9387616759
+                        </span>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light mb-3">Follow Us</h5>
+                    <div>
+                        <ul class = "list-unstyled d-flex">
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none fs-4 me-4">
+                                    <i class = "fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none fs-4 me-4">
+                                    <i class = "fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none fs-4 me-4">
+                                    <i class = "fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none fs-4 me-4">
+                                    <i class = "fab fa-pinterest"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end of footer -->
+
+
+
+
+    <!-- jquery -->
+    <script src = "js/jquery-3.6.0.js"></script>
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <!-- bootstrap js -->
+    <script src = "bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <!-- custom js -->
+    <script src = "js/script.js"></script>
+</body>
+</html>
+
